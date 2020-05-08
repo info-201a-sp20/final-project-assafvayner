@@ -33,3 +33,12 @@ For each identified data source,
 - Description of how was the data collected or generated (**1 point**)?
 - How many observations (rows) and features (columns) are in your data(**1 point**)?
 - What questions (from above) can be answered using the data in this dataset(**1 point**)?
+
+## Finding Data:
+
+### Steam Data:
+This data contains information about price, play time and ratings for most games on Steam.
+- [link to data set on kaggle](https://www.kaggle.com/nikdavis/steam-store-games#steam.csv)
+- This data was gathered from the Steam Store and using SteamSpy APIs
+- 18 columns and 27075 rows
+- This data will help us answer in details the questions on the popularity of games across genres and makers that are played on computers and across operating systems
