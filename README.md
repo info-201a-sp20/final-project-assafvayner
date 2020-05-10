@@ -18,7 +18,8 @@ Our group has a varying degree of interest in video games as well as use differe
  to better understand how to improve dossiers and the overall experience of the game.
  [A conceptual model for video games and interactive media](https://asistdl.onlinelibrary.wiley.com/doi/abs/10.1002/asi.23409)
  This study created a conceptual model for videa games and interactive media. It took information from various sources regadring video games to better understand how different types of people understand video games, and their relationship to them.
- 
+ [4 gaming trends to get excited about in 2020](https://blog.globalwebindex.com/chart-of-the-week/gaming-trends-2020/)
+ This study centered around the gaming industry and the great numbers it is doing in 2020. From consoles, to cloud gaming, lots of important statistics are brought forth in this article and we could see some general trends and analyses about its significance in the present day.
 
 - What data-driven questions do you hope to answer about this domain (**6 points**, 2 points each)
     - Question is related to the field (**1 point**)
