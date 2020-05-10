@@ -10,8 +10,15 @@ Our group has a varying degree of interest in video games as well as use differe
     - Briefly describes the project in 1 - 2 sentences (**1 points**)
 
 ## data-driven projects:
- [data proj 1](https://www.microsoft.com/en-us/research/wp-content/uploads/2016/02/zimmermann-chigur-2012.pdf)
- [data proj 2](http://gamestudies.org/1101/articles/medler)
+ [Data-Driven Games User Research](https://www.microsoft.com/en-us/research/wp-content/uploads/2016/02/zimmermann-chigur-2012.pdf)
+ This was a research devised and performed by microsoft based off of data from in-game states such as playtime and acheivements. They looked at things like player progression and types of playing modes (online or offline) to better the user experience. 
+ [Player Dossiers: Analyzing Gameplay Data as a Reward](http://gamestudies.org/1101/articles/medler)
+ This study was done on a player dossier, or "a data-driven reporting tool comprised of a player's gameplay data."
+ The paper helps explain how a player dossier works and uses dossiers from existing games along with user experience
+ to better understand how to improve dossiers and the overall experience of the game.
+ [A conceptual model for video games and interactive media](https://asistdl.onlinelibrary.wiley.com/doi/abs/10.1002/asi.23409)
+ This study created a conceptual model for videa games and interactive media. It took information from various sources regadring video games to better understand how different types of people understand video games, and their relationship to them.
+ 
 
 - What data-driven questions do you hope to answer about this domain (**6 points**, 2 points each)
     - Question is related to the field (**1 point**)
