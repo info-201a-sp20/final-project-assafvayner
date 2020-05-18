@@ -1,0 +1,18 @@
+---
+title: "Final Project Video Games"
+author: "Tommy Lam, Eric Le, Maya Nair, Assaf Vayner"
+date: "5/17/2020"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+source("scripts/summary_table.R")
+library(knitr)
+```
+
+
+```{r, echo=FALSE}
+kable(publisher_table,
+      align = 'rccccc',
+      col.names = gsub("[_*]", " ", colnames(publisher_table)))
+```
