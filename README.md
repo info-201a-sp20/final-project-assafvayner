@@ -19,9 +19,9 @@ This study was done on a player dossier, or "a data-driven reporting tool compri
 
 1. The following quetsions can be answered through the use of comparing devlopers and their games to specific
 columns that relate to the quetsion like global sales, specific region sales, or best game.
-- Which developer had the most global sales overall?
-- Which developers sell more games in each region, or per each console?
-- Which developer made the best game for each genre?
+- Which publishers sold the most games in North America, Europe, Japan, and globaly?
+- Which publishers sell more games in each region, or per each console?
+- Which publisher made the best game for each genre?
 
 2. A specific comparision would have to be made and split down into regions and global to see the
 differences of different games in a  series for the following quetsion.
@@ -33,7 +33,7 @@ differences of different games in a  series for the following quetsion.
 
 4. This question would have to be answered through analysis by looking at previous games and the details to see when and where the next game was released.
 - What factors do previous game launches affect future launches?   
-    
+
 
 Each and all of these questions can be answered with visualizations we can create using R.
 We could make graphs or line charts showing trends between these questions by subsetting them in the datasets.
