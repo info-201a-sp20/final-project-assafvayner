@@ -41,4 +41,16 @@ eu_genres <- top3_genres("EU_Sales")
 
 
 #Are there more occurences of people buying multiplayer or single player games?
-
+steam_multiplayer_playtime <- steam %>%
+  filter(median_playtime != 0 & average_playtime != 0) %>%
+  mutate(multiplayer = str_detect(categories, "Multi") |
+           str_detect(steamspy_tags, "Multiplayer"),
+         not_multiplayer = !(str_detect(categories, "Multi") |
+           str_detect(steamspy_tags, "Multiplayer")),
+         multiplayer_playtime = multiplayer * average_playtime,
+         non_multi_playtime = not_multiplayer * average_playtime) %>%
+  summarise(num_games = n(),
+            num_multi = sum(multiplayer),
+            multiplayer_playtime = mean(multiplayer_playtime),
+            num_not_multi = sum(not_multiplayer),
+            non_multi_playtime = mean(non_multi_playtime))
