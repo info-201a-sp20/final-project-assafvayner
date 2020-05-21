@@ -3,9 +3,8 @@ data <- read.csv("./data/video_games.csv", stringsAsFactors = FALSE)
 library(ggplot2)
 library(dplyr)
 library(plotly)
-library(plotly.express)
-install.packages("plotly") 
-## Barchart of games and prices
+
+## Barchart of games and prices ----
 game_name <- data %>% 
   group_by(game) %>%
   summarise(price = sum(price, na.rm = TRUE)) %>% 
@@ -26,10 +25,7 @@ plot <- ggplot(game_name) +
 
 plot
 
-fig <- plot_ly(data = game_name, x = ~game, y = ~price)
-fig
-
-
+## Interactive 3d scatterplot
 fig <- plot_ly(game, x = ~game, y = ~price, z = ~average_playtime, colors = c('#BF382A', '#0C4B8E'))
 fig <- fig %>% add_markers()
 fig <- fig %>% layout(scene = list(xaxis = list(title = 'Weight'),
