@@ -47,8 +47,18 @@ na_platform <- top_consoles("NA_Sales")
 jp_platform <- top_consoles("JP_Sales")
 eu_platform <- top_consoles("EU_Sales")
 
-#Do age restricted games get more play time on steam?
+# What age restriction gets the least and most playtime?
+most_play_time <- steam %>% 
+  group_by(required_age) %>% 
+  summarise(playtime = sum(average_playtime)) %>% 
+  filter(playtime == max(playtime)) %>% 
+  pull(required_age)
 
+least_play_time <- steam %>% 
+  group_by(required_age) %>% 
+  summarise(playtime = sum(average_playtime)) %>% 
+  filter(playtime == min(playtime)) %>% 
+  pull(required_age)
 
 #Are there more occurences of people buying multiplayer or single player games?
 steam_multiplayer_playtime <- steam %>%
