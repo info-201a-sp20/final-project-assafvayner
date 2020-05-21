@@ -25,8 +25,8 @@ global_publisher <- top3_publishers("Global_Sales")
 top3_genres <- function(region_sales) {
   videogames_2016 %>%
   group_by(Genre)%>% 
-  summarise(NA_genre = sum(!!as.name(region_sales))) %>%
-  arrange(-NA_genre) %>%
+  summarise(top_genre = sum(!!as.name(region_sales))) %>%
+  arrange(-top_genre) %>%
   slice(1:3) %>%
   pull(Genre)
 }
@@ -35,7 +35,17 @@ jp_genres <- top3_genres("JP_Sales")
 eu_genres <- top3_genres("EU_Sales")
 
 #Do certain consoles get played more in certain regions?
-
+top_consoles <- function(region) {
+  videogames_2016 %>% 
+    group_by(Platform) %>%
+    summarise(top_platform = length(nrow(!!as.name(region)))) %>% 
+    arrange(-top_platform) %>% 
+    slice(1:3) %>% 
+    pull(Platform)
+}
+na_platform <- top_consoles("NA_Sales")
+jp_platform <- top_consoles("JP_Sales")
+eu_platform <- top_consoles("EU_Sales")
 
 #Do age restricted games get more play time on steam?
 
