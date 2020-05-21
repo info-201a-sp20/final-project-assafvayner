@@ -7,8 +7,32 @@ output: html_document
 
 ```{r setup, include=FALSE}
 source("scripts/summary_table.R")
+source("scripts/summary_questions.R")
+source("scripts/charts.R")
 library(knitr)
 ```
+
+## Summary Information
+
+### Most successful publishers:
+
+North America: `r na_publisher`
+Europe: `r eu_publisher`
+Japan: `r jp_publisher`
+Global: `r global_publisher`
+
+### Most successful Generes:
+
+
+Do games in certain genres do better in certain regions?
+Do certain consoles get played more in certain regions?
+Do age restricted games get more play time on steam?
+
+
+---
+# Assaf
+---
+Are there more occurences of people buying multiplayer or single player games?
 
 
 ```{r, echo=FALSE}
@@ -16,3 +40,9 @@ kable(publisher_table,
       align = 'rccccc',
       col.names = gsub("[_*]", " ", colnames(publisher_table)))
 ```
+
+
+
+---
+# Tommy and Eric charts
+---

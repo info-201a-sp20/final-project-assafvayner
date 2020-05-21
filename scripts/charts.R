@@ -1,4 +1,3 @@
-# assigned to Tommy and Eric
 data <- read.csv("./data/video_games.csv", stringsAsFactors = FALSE)
 library(ggplot2)
 library(dplyr)
@@ -19,7 +18,7 @@ plot <- ggplot(game_name) +
   geom_col(mapping = aes(x = game, y = price))+
   labs(title = "Game Prices", x= "Games", y= "Prices") +
   theme(plot.title = element_text(hjust=.5)) +
-  theme(axis.text.x = element_text(angle=70, hjust=1))+
+  theme(axis.text.x = element_text(angle=70, hjust=1)) +
   labs(fill =("Prices"))
 
 
@@ -33,3 +32,6 @@ fig <- fig %>% layout(scene = list(xaxis = list(title = 'Weight'),
                                    zaxis = list(title = '1/4 mile time')))
 
 fig
+
+
+# triple axis with NA, EU, JP sales
