@@ -71,6 +71,8 @@ steam_multiplayer_playtime <- steam %>%
          non_multi_playtime = not_multiplayer * average_playtime) %>%
   summarise(num_games = n(),
             num_multi = sum(multiplayer),
-            multiplayer_playtime = mean(multiplayer_playtime),
+            multiplayer_playtime = round(mean(multiplayer_playtime), 2),
             num_not_multi = sum(not_multiplayer),
-            non_multi_playtime = mean(non_multi_playtime))
+            non_multi_playtime = round(mean(non_multi_playtime), 2))
+
+            

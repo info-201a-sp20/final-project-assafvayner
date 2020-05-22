@@ -29,19 +29,22 @@ Do certain consoles get played more in certain regions?
 Do age restricted games get more play time on steam?
 
 
----
-# Assaf
----
-Are there more occurences of people buying multiplayer or single player games?
+### Are there more occurences of people buying multiplayer or single player games?
 
+
+### Are people playing more time on multiplayer games?
+
+According to data collected regarding games on steam, there were `r steam_multiplayer_playtime$num_multi` multiplayer games (including online and local multiplayer games) out of `r steam_multiplayer_playtime$num_games` games. The average play time across all multiplayer games was `r steam_multiplayer_playtime$multiplayer_playtime` minutes while it was `r steam_multiplayer_playtime$non_multi_playtime` for non-multiplayer games showing that non-multiplayer games generally get played for longer by each owner.
+
+## Table of Most Successful Publishers
+
+The following table shows the `r nrow(publisher_table)` video game publishers sorted by Global Sales. These were the publishers who had global sales exceeding 2 standard deviations from the mean global sales of all publishers. The Global Popularity column is calculated by the reciprocal of the multiplication of the disparities between the NA, EU, JP and other Sales normalized to be from 0 to 1 by deviding by global sales. The Popularity Rank column helps to show which Publishers have higher Global Popularity values. The goal of this measurement is to show which video game publishers do well across all regions rather than in a single region. This shows that while `r publisher_table["Publisher", 1]` has greater over all Global Sales, `r highest_popularity_publisher` does a better job at selling their products across the world at more similar rate. The Sales values are included as is the Global Popularity score to present the actual differences in sales, and it is apparent from the tables that the publishers with sales numbers closer to each other have a lower popularity score and rank.
 
 ```{r, echo=FALSE}
 kable(publisher_table,
-      align = 'rccccc',
+      align = 'rccccccc',
       col.names = gsub("[_*]", " ", colnames(publisher_table)))
 ```
-
-
 
 ---
 # Tommy and Eric charts
