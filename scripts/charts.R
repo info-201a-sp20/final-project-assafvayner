@@ -98,5 +98,3 @@ ggplot(console, aes(x = Name, y = sales, fill = Platform)) +
   geom_text(aes(label = sales), position = position_stack(vjust = .5),
             color = "white", size = 3)
 }
-
-pie("Grand Theft Auto V")
