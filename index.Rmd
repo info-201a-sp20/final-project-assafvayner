@@ -37,15 +37,8 @@ kable(publisher_table,
       align = 'rccccccc',
       col.names = gsub("[_*]", " ", colnames(publisher_table)))
 ```
-<<<<<<< HEAD
-
----
-# Tommy and Eric charts
----
 
 ## Barchart Comparing Genres and Publisher
 
 The following barcharts look at different genre's to see which games and publishers sold the most globally. These barcharts looked at genre and global sales exceeding 3 standard deviation from the mean global sales in order to focus on the top performing games. This barchart is included becuase it is clear to see which games performed the most and which publisher produced the games. 
 
-=======
->>>>>>> bdd4584677d6f4bde98da7b89032fdf71d2ff022
