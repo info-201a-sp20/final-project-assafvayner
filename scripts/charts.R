@@ -31,7 +31,7 @@ plot <- ggplot(game_name) +
 # Creates bar chart of games, global sales, and publisher for specific genre
 barplot_genre_publisher <- function(genre, df){
   genre_df <- df %>% 
-    filter(Genre == genre, Global_Sales > mean(Global_Sales) + 3 * sd(Global_Sales))
+    filter(Genre == genre, Global_Sales > 5)
   
   bar <- ggplot(genre_df, aes(x=Name, y=Global_Sales, fill=Publisher)) +
     geom_bar(stat="identity")+labs(title = paste0("Global Game sales in ", genre), x ="Game", y="Global Sales")+
@@ -67,8 +67,7 @@ make_3d_scatter <- function(df){
 
 # Filters the data from 10 to 70 global sales
 filtered <- video_games_2016 %>% 
-  filter(Global_Sales > 10) %>% 
-  filter(Global_Sales < 70)
+  filter(Global_Sales > 10) 
 
 x3d_scatterplot <-make_3d_scatter(filtered)
 
