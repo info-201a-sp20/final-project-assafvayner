@@ -21,19 +21,19 @@ Europe: `r eu_publisher`
 Japan: `r jp_publisher`
 Global: `r global_publisher`
 
-### Most successful Generes:
+### Which top 3 publishers sold the most games in North America, Europe, Japan, and globally?
+One piece of information we were interested to look further into was what publishers were dominant in various regions as well as which publishers were dominant worldwide. In North America, the top 3 publishers in 2016 were `r na_publisher`. Next, in Europe, the top 3 publishers were `r eu_publisher`. Last, in Japan the top 3 publishers were `r jp_publisher`. Overall, the top 3 publishers globally were `r global_publisher`. Overall, it was interesting to see that Nintendo was one of the top publishers across the board.
 
+### What are the top 3 game genres in a given region based on sales?
+From our second question, we looked to find which genres were most popular in certain regions depending on the sales of various games. In North America, the top 3 genres were `r na_genres`. In Japan, the top 3 genres were `r jp_genres`. In Europe, the top 3 genres were `r eu_genres`. Lastly, the top 3 genres worldwide, were `r global_genres`. From this, we found that Action, Sports, and shooter games were prodominantly popular with one outlier being Role-Playing games in Japan.
 
-Do games in certain genres do better in certain regions?
-Do certain consoles get played more in certain regions?
-Do age restricted games get more play time on steam?
+### Do certain consoles get played more in certain regions?
+Next, we sought to find which consoles of 2016 were most popular in given regions. In North America, the top 3 consoles were `r na_platorm`, in Japan, the top 3 consoles were `r jp_platform`, and in Europe, the top 3 consoles were `r eu_platform`. Interestingly enough, we found that the same consoles appeared to dominate overall no matter the region we analyzed. 
 
-
-### Are there more occurences of people buying multiplayer or single player games?
-
+### What age restriction gets the least and most playtime?
+Our next question we were interested in answering, is what age restriction had the least and most playtime on Steam. From this, we discovered that the age restriction with the least playtime on Steam was, `r least_play_time`, and the age restriction with the most playtime was `r most_play_time`.
 
 ### Are people playing more time on multiplayer games?
-
 According to data collected regarding games on steam, there were `r steam_multiplayer_playtime$num_multi` multiplayer games (including online and local multiplayer games) out of `r steam_multiplayer_playtime$num_games` games. The average play time across all multiplayer games was `r steam_multiplayer_playtime$multiplayer_playtime` minutes while it was `r steam_multiplayer_playtime$non_multi_playtime` for non-multiplayer games showing that non-multiplayer games generally get played for longer by each owner.
 
 ## Table of Most Successful Publishers

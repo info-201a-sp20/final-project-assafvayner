@@ -33,6 +33,7 @@ top3_genres <- function(region_sales) {
 na_genres <- top3_genres("NA_Sales")
 jp_genres <- top3_genres("JP_Sales")
 eu_genres <- top3_genres("EU_Sales")
+global_genres <- top3_genres("Global_Sales")
 
 #Do certain consoles get played more in certain regions?
 top_consoles <- function(region) {
@@ -47,7 +48,7 @@ na_platform <- top_consoles("NA_Sales")
 jp_platform <- top_consoles("JP_Sales")
 eu_platform <- top_consoles("EU_Sales")
 
-# What age restriction gets the least and most playtime?
+# What age restriction gets the least and most playtime on Steam?
 most_play_time <- steam %>% 
   group_by(required_age) %>% 
   summarise(playtime = sum(average_playtime)) %>% 
