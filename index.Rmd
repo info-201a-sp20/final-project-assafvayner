@@ -49,6 +49,31 @@ sports_barchart
 shooter_barchart
 ```
 
+## Pie Chart Comparing Sales by Console
+
+The following pie chart shows a comparison between the amount of overall sales of games that are released on multiple platforms. The pie chart is split into different slices resembling sales on each platform the game is sold. This chart is included to clearly show the sales among platforms for specific games to clear inquiry regarding the many inputs of a certain game. Below is a pie chart using the game Grand Theft Auto V as an example:
+
+```{r, echo=FALSE}
+pie <- function(name){
+console <- game_sales %>% 
+  group_by(Name, Platform) %>% 
+  summarize(sales = sum(NA_Sales,EU_Sales, JP_Sales, Other_Sales, Global_Sales)) %>% 
+  filter(Name == name) %>% 
+  arrange(-sales)
+y_name <- paste0("Game: ", name)
+ggplot(console, aes(x = Name, y = sales, fill = Platform)) +
+  geom_bar(stat = "identity", width = 1, color = "black") +
+  coord_polar("y", start=0) + 
+  theme(axis.title.y = element_blank(),
+        axis.text = element_blank(),
+        axis.ticks = element_blank(),
+        panel.grid  = element_blank()) +
+  labs(title = "Game Sales by Console", y = y_name) +
+  geom_text(aes(label = sales), position = position_stack(vjust = .5), color = "white", size = 3)
+}
+pie("Grand Theft Auto V")
+```
+
 ## 3D Scatter plot of game sales
 
 The following scatterplot is interactive to help see how well each game performed in specific regions and globally. For the axis, we have North American, Japan, and European sales, while having the color scale with global sales. We decided to do an interactive scatter plot for this part in order for the reader to see how the game sold in each region specifically, and the color scaling helps see which games did the best globally. While hovering over each dot, you can see the stats broken down along with name and genre. The filtered data was set to 6 standard deviations above the mean, but there are still many games so we can tell that there have been more games that performed worse than games that have been successful. We can see from the games that sold 25M +, the US contributed the most out of the regions tested and so we can tell that most of the game sales come from the US. The genres of popular games are also diverse being Platform, Puzzle, Shooter, and Role-playing so that means there is variety when it comes to popular games and not one genre is dominating the market.
