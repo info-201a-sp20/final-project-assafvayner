@@ -1,13 +1,12 @@
-# assigned to Tommy and Eric
-data <- read.csv("./data/video_games.csv", stringsAsFactors = FALSE)
-video_games_2016 <- read.csv("./data/Video_Games_Sales_as_at_22_Dec_2016.csv",
-                        stringsAsFactors = FALSE)
-video_games_2016 <- video_games_2016[-1, ]
 library(ggplot2)
 library(dplyr)
 library(plotly)
 library(RColorBrewer)
 library(lintr)
+
+video_games_2016 <- read.csv("./data/Video_Games_Sales_as_at_22_Dec_2016.csv",
+                             stringsAsFactors = FALSE)
+video_games_2016 <- video_games_2016[-1, ]
 
 # Bar Chart ----
 
@@ -67,20 +66,9 @@ filtered <- video_games_2016 %>%
 
 x3d_scatterplot <- make_3d_scatter(filtered)
 
-x3d_scatterplot
-
-## Pie Chart for most used consoles for certain games
-game_sales <- read.csv("./data/Video_Games_Sales_as_at_22_Dec_2016.csv",
-                       stringsAsFactors = FALSE)
-console <- game_sales %>%
-  group_by(Name, Platform) %>%
-  summarize(sales = sum(NA_Sales, EU_Sales, JP_Sales,
-                        Other_Sales, Global_Sales)) %>%
-  filter(Name == "Grand Theft Auto IV") %>%
-  arrange(-sales)
-
-pie <- function(name) {
-console <- game_sales %>%
+# creates pie chart of console susage for given game name
+pie <- function(name, df) {
+console <- df %>%
   group_by(Name, Platform) %>%
   summarize(sales = sum(NA_Sales, EU_Sales, JP_Sales,
                         Other_Sales, Global_Sales)) %>%

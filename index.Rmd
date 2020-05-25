@@ -54,8 +54,8 @@ shooter_barchart
 The following pie charts show a comparison between the amount of overall sales of games that are released on multiple platforms. The pie chart is split into different slices resembling sales on each platform the game is sold. This chart is included to clearly show the sales among platforms for specific games to clear inquiry regarding the many inputs of a certain game. Below are pie charts using the game Grand Theft Auto V and Call of Duty: Black Ops 3 as an example:
 
 ```{r, echo=FALSE, fig.hold='hold', out.width="50%"}
-pie("Grand Theft Auto V")
-pie("Call of Duty: Black Ops 3")
+pie("Grand Theft Auto V", video_games_2016)
+pie("Call of Duty: Black Ops 3", video_games_2016)
 ```
 
 Some observations we could find in these pie charts are that the most copies of GTA V were sold on PS3 while the most copies of BO3 were sold on PS4.
