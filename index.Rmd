@@ -13,18 +13,11 @@ source("scripts/summary_questions.R")
 
 ## Summary Information
 
-### Most successful publishers:
-
-North America: `r na_publisher`
-Europe: `r eu_publisher`
-Japan: `r jp_publisher`
-Global: `r global_publisher`
-
 ### Which top 3 publishers sold the most games in North America, Europe, Japan, and globally?
-One piece of information we were interested to look further into was what publishers were dominant in various regions as well as which publishers were dominant worldwide. In North America, the top 3 publishers in 2016 were `r na_publisher`. Next, in Europe, the top 3 publishers were `r eu_publisher`. Last, in Japan the top 3 publishers were `r jp_publisher`. Overall, the top 3 publishers globally were `r global_publisher`. Overall, it was interesting to see that Nintendo was one of the top publishers across the board.
+One piece of information we were interested to look further into was what publishers were dominant in various regions as well as which publishers were dominant worldwide. In North America, the top 3 publishers in 2016 were `r vector3_to_string(na_publisher)`. Next, in Europe, the top 3 publishers were `r vector3_to_string(eu_publisher)`. Last, in Japan the top 3 publishers were `r vector3_to_string(jp_publisher)`. Overall, the top 3 publishers globally were `r vector3_to_string(global_publisher)`. Overall, it was interesting to see that Nintendo was one of the top publishers across the board.
 
 ### What are the top 3 game genres in a given region based on sales?
-From our second question, we looked to find which genres were most popular in certain regions depending on the sales of various games. In North America, the top 3 genres were `r na_genres`. In Japan, the top 3 genres were `r jp_genres`. In Europe, the top 3 genres were `r eu_genres`. Lastly, the top 3 genres worldwide, were `r global_genres`. From this, we found that Action, Sports, and shooter games were prodominantly popular with one outlier being Role-Playing games in Japan.
+From our second question, we looked to find which genres were most popular in certain regions depending on the sales of various games. In North America, the top 3 genres were `r vector3_to_string(na_genres)`. In Japan, the top 3 genres were `r vector3_to_string(jp_genres)`. In Europe, the top 3 genres were `r vector3_to_string(eu_genres)`. Lastly, the top 3 genres worldwide, were `r vector3_to_string(global_genres)`. From this, we found that Action, Sports, and shooter games were prodominantly popular with one outlier being Role-Playing games in Japan.
 
 ### Do certain consoles get played more in certain regions?
 Next, we sought to find which consoles of 2016 were most popular in given regions. In North America, the top 3 consoles were `r na_platform`, in Japan, the top 3 consoles were `r jp_platform`, and in Europe, the top 3 consoles were `r eu_platform`. Interestingly enough, we found that the same consoles appeared to dominate overall no matter the region we analyzed. 
@@ -44,9 +37,3 @@ kable(publisher_table,
       align = 'rccccccc',
       col.names = gsub("[_*]", " ", colnames(publisher_table)))
 ```
-
----
-# Tommy and Eric charts
----
-
-## 
