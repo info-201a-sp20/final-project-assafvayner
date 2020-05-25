@@ -9,6 +9,7 @@ output: html_document
 library(knitr)
 source("scripts/summary_table.R")
 source("scripts/summary_questions.R")
+source("scripts/charts.R")
 ```
 
 ## Summary Information
@@ -40,5 +41,16 @@ kable(publisher_table,
 
 ## Barchart Comparing Genres and Publisher
 
-The following barcharts look at different genre's to see which games and publishers sold the most globally. These barcharts looked at genre and global sales exceeding 3 standard deviation from the mean global sales in order to focus on the top performing games. This barchart is included becuase it is clear to see which games performed the most and which publisher produced the games. 
+The following barcharts look at different genre's to see which games and publishers sold the most globally. These barcharts looked at genre and global sales exceeding 3 standard deviation from the mean global sales in order to focus on the top performing games. This barchart is included becuase it is clear to see which games performed the most and which publisher produced the games. The useage of color to differentiate publisher's also adds to the clarity of the chart. The 3 genres that we tested were sports, shooter, and platform. For sports games, we can see that the top game sales are all from Nintendo and their Wii fit and Wii sports games. For shooter games, we can tell that Call of duty games from Activision made the most sum of money, but Duck Hunt actually beats out all of the other games by itself. For Platform games, we can see that Nintendo dominates this genre, especially with their Super Mario games.
 
+```{r, echo=FALSE, fig.hold='hold', out.width="50%"}
+sports_barchart
+
+shooter_barchart
+```
+
+## 3D Scatter plot of game sales
+
+```{r, echo=FALSE}
+x3d_scatterplot
+```

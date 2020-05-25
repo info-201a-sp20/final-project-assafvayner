@@ -70,14 +70,14 @@ make_3d_scatter <- function(df){
 
 # Filters the data from 10 to 70 global sales
 filtered <- video_games_2016 %>% 
-  filter(Global_Sales > 10) 
+  filter(Global_Sales > mean(Global_Sales) + 6 * sd(Global_Sales))
 
 x3d_scatterplot <-make_3d_scatter(filtered)
 
 x3d_scatterplot
 
 ## Pie Chart for most used consoles for certain games
-game_sales <- read.csv("Video_Games_Sales_as_at_22_Dec_2016.csv", stringsAsFactors = FALSE)
+game_sales <- read.csv("./data/Video_Games_Sales_as_at_22_Dec_2016.csv", stringsAsFactors = FALSE)
 console <- game_sales %>% 
   group_by(Name, Platform) %>% 
   summarize(sales = sum(NA_Sales,EU_Sales, JP_Sales, Other_Sales, Global_Sales)) %>% 
