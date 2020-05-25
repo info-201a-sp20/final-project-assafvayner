@@ -1,8 +1,8 @@
 # assigned to Tommy and Eric
-data <- read.csv("video_games.csv", stringsAsFactors = FALSE)
-video_games_2018 <- read.csv("./data/Video_Games_Sales_as_at_22_Dec_2016.csv",
+data <- read.csv("./data/video_games.csv", stringsAsFactors = FALSE)
+video_games_2016 <- read.csv("./data/Video_Games_Sales_as_at_22_Dec_2016.csv",
                         stringsAsFactors = FALSE)
-video_games_2018 <- video_games_2018[-1, ]
+video_games_2016 <- video_games_2016[-1, ]
 library(ggplot2)
 library(dplyr)
 library(plotly)
@@ -31,7 +31,7 @@ plot <- ggplot(game_name) +
 # Creates bar chart of games, global sales, and publisher for specific genre
 barplot_genre_publisher <- function(genre, df){
   genre_df <- df %>% 
-    filter(Genre == genre, Global_Sales > 5)
+    filter(Genre == genre, Global_Sales > mean(Global_Sales) + 3 * sd(Global_Sales))
   
   bar <- ggplot(genre_df, aes(x=Name, y=Global_Sales, fill=Publisher)) +
     geom_bar(stat="identity")+labs(title = paste0("Global Game sales in ", genre), x ="Game", y="Global Sales")+
@@ -39,7 +39,7 @@ barplot_genre_publisher <- function(genre, df){
   return(bar)
 }
 
-barplot_genre_publisher("Sports", video_games_2018)
+barplot_genre_publisher("Sports", video_games_2016)
 
 # Interactive 3d Scatter plot ----
 
@@ -66,7 +66,7 @@ make_3d_scatter <- function(df){
 }
 
 # Filters the data from 10 to 70 global sales
-filtered <- video_games_2018 %>% 
+filtered <- video_games_2016 %>% 
   filter(Global_Sales > 10) %>% 
   filter(Global_Sales < 70)
 
