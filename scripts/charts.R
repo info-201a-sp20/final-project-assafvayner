@@ -4,6 +4,7 @@ library(plotly)
 library(RColorBrewer)
 library(lintr)
 
+# Reads in CSV
 video_games_2016 <- read.csv("./data/Video_Games_Sales_as_at_22_Dec_2016.csv",
                              stringsAsFactors = FALSE)
 video_games_2016 <- video_games_2016[-1, ]
@@ -24,6 +25,7 @@ barplot_genre_publisher <- function(genre, df) {
   return(bar)
 }
 
+# Creates barcharts for different genres
 sports_barchart <- barplot_genre_publisher("Sports", video_games_2016)
 shooter_barchart <- barplot_genre_publisher("Shooter", video_games_2016)
 platform_barchart <- barplot_genre_publisher("Platform", video_games_2016)
@@ -60,10 +62,11 @@ make_3d_scatter <- function(df) {
   return(plot)
 }
 
-# Filters the data from 10 to 70 global sales
+# Filters the data to 6 standard deviations about the mean
 filtered <- video_games_2016 %>%
   filter(Global_Sales > mean(Global_Sales) + 6 * sd(Global_Sales))
 
+# Assigns plot to variable
 x3d_scatterplot <- make_3d_scatter(filtered)
 
 # creates pie chart of console susage for given game name
