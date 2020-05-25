@@ -1,5 +1,8 @@
 # assigned to Tommy and Eric
 data <- read.csv("video_games.csv", stringsAsFactors = FALSE)
+video_games_2018 <- read.csv("./data/Video_Games_Sales_as_at_22_Dec_2016.csv",
+                        stringsAsFactors = FALSE)
+video_games_2018 <- video_games_2018[-1, ]
 library(ggplot2)
 library(dplyr)
 library(plotly)
@@ -36,7 +39,7 @@ barplot_genre_publisher <- function(genre, df){
   return(bar)
 }
 
-barplot_genre_publisher("Sports", data)
+barplot_genre_publisher("Sports", video_games_2018)
 
 # Interactive 3d Scatter plot ----
 
@@ -63,7 +66,7 @@ make_3d_scatter <- function(df){
 }
 
 # Filters the data from 10 to 70 global sales
-filtered <- data %>% 
+filtered <- video_games_2018 %>% 
   filter(Global_Sales > 10) %>% 
   filter(Global_Sales < 70)
 
@@ -97,10 +100,3 @@ ggplot(console, aes(x = Name, y = sales, fill = Platform)) +
   geom_text(aes(label = sales), position = position_stack(vjust = .5), color = "white", size = 3)
 }
 pie("Grand Theft Auto V")
-  
-## Interactive 3d scatterplot
-fig <- plot_ly(game, x = ~game, y = ~price, z = ~average_playtime, colors = c('#BF382A', '#0C4B8E'))
-fig <- fig %>% add_markers()
-fig <- fig %>% layout(scene = list(xaxis = list(title = 'Weight'),
-                                   yaxis = list(title = 'Gross horsepower'),
-                                   zaxis = list(title = '1/4 mile time')))
