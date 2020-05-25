@@ -31,7 +31,7 @@ plot <- ggplot(game_name) +
 # Creates bar chart of games, global sales, and publisher for specific genre
 barplot_genre_publisher <- function(genre, df){
   genre_df <- df %>% 
-    filter(Genre == genre, Global_Sales > 5)
+    filter(Genre == genre, Global_Sales > mean(Global_Sales) + 3 * sd(Global_Sales))
   
   bar <- ggplot(genre_df, aes(x=Name, y=Global_Sales, fill=Publisher)) +
     geom_bar(stat="identity")+labs(title = paste0("Global Game sales in ", genre), x ="Game", y="Global Sales")+
@@ -39,18 +39,21 @@ barplot_genre_publisher <- function(genre, df){
   return(bar)
 }
 
-barplot_genre_publisher("Sports", video_games_2016)
+sports_barchart <- barplot_genre_publisher("Sports", video_games_2016)
+shooter_barchart <- barplot_genre_publisher("Shooter", video_games_2016)
+platform_barchart<- barplot_genre_publisher("Platform", video_games_2016)
 
 # Interactive 3d Scatter plot ----
 
 # Function for 3d scatter plot with Na, Eu, and JP sales on axis
 # and color scaling with global sales
 make_3d_scatter <- function(df){
-  plot <- plot_ly(filtered, x = ~NA_Sales, y = ~EU_Sales, z = ~JP_Sales, 
+  plot <- plot_ly(df, x = ~NA_Sales, y = ~EU_Sales, z = ~JP_Sales, 
                   hovertemplate = paste(df$Name,'<extra></extra>' ,'<br>Genre:',df$Genre, '<br>Global Sales:', df$Global_Sales,'<br>NA Sales:', df$NA_Sales,
                                         '<br>EU Sales:', df$EU_Sales, '<br>JP Sales:', df$JP_Sales),
                   marker = list(color = ~Global_Sales, colorscale = c('#FFE1A1', '#683531'), showscale = TRUE)) %>% 
     add_markers() %>% 
+    layout(title="Comparing Games to Sales in Different Regions") %>% 
     layout(scene = list(xaxis = list(title = 'North America Sales'),
                         yaxis = list(title = 'Europe Sales'),
                         zaxis = list(title = 'Japan Sales')),

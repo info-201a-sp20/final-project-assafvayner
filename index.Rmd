@@ -49,4 +49,7 @@ kable(publisher_table,
 # Tommy and Eric charts
 ---
 
-## 
+## Barchart Comparing Genres and Publisher
+
+The following barcharts look at different genre's to see which games and publishers sold the most globally. These barcharts looked at genre and global sales exceeding 3 standard deviation from the mean global sales in order to focus on the top performing games. This barchart is included becuase it is clear to see which games performed the most and which publisher produced the games. 
+
