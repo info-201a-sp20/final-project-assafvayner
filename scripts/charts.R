@@ -47,7 +47,7 @@ barplot_genre_publisher("Sports", video_games_2016)
 # and color scaling with global sales
 make_3d_scatter <- function(df){
   plot <- plot_ly(filtered, x = ~NA_Sales, y = ~EU_Sales, z = ~JP_Sales, 
-                  hovertemplate = paste(df$Name,'<extra></extra>' , '<br>Global Sales:', df$Global_Sales,'<br>NA Sales:', df$NA_Sales,
+                  hovertemplate = paste(df$Name,'<extra></extra>' ,'<br>Genre:',df$Genre, '<br>Global Sales:', df$Global_Sales,'<br>NA Sales:', df$NA_Sales,
                                         '<br>EU Sales:', df$EU_Sales, '<br>JP Sales:', df$JP_Sales),
                   marker = list(color = ~Global_Sales, colorscale = c('#FFE1A1', '#683531'), showscale = TRUE)) %>% 
     add_markers() %>% 
