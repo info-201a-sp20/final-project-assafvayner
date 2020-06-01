@@ -35,7 +35,7 @@ ui <- fluidPage(
       p("intro info")
     ),
     tabPanel(
-      "vis 1",
+      "Visualization 1",
       sidebarLayout(
         sidebarPanel(
           game_choices
@@ -51,10 +51,9 @@ ui <- fluidPage(
       )
     ),
     tabPanel(
-      "vis 2",
+      "Visualization 2",
       sidebarLayout(
         sidebarPanel(
-          p("widgets"),
           genre_choices
         ),
         mainPanel(
@@ -68,7 +67,7 @@ ui <- fluidPage(
       )
     ),
     tabPanel(
-      "vis 3",
+      "Visualization 3",
       sidebarLayout(
         sidebarPanel(
           x_axis_choice,
@@ -84,7 +83,7 @@ ui <- fluidPage(
       )
     ),
     tabPanel(
-      "summary",
+      "Summary",
       p("summary")
     )
   )
