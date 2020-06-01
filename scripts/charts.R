@@ -34,41 +34,49 @@ platform_barchart <- barplot_genre_publisher("Platform", video_games_2016)
 
 # Function for 3d scatter plot with Na, Eu, and JP sales on axis
 # and color scaling with global sales
-make_3d_scatter <- function(df) {
-  plot <- plot_ly(df, x = ~NA_Sales, y = ~EU_Sales, z = ~JP_Sales,
-                  hovertemplate = paste(df$Name, "<extra></extra>",
-                                        "<br>Genre:", df$Genre,
+
+
+make_3d_scatter <- function(x_choice, y_choice ,z_choice, color_choice, sd_choice, df) {
+  games_df<- df %>%
+    filter(Global_Sales > mean(Global_Sales) + sd_choice * sd(Global_Sales)) %>% 
+    rename("Japan Sales" = JP_Sales,
+           "North America Sales" = NA_Sales,
+           "Europe Sales" = EU_Sales,
+           "Other Sales" = Other_Sales,
+           "Global Sales" = Global_Sales)
+  plot <- plot_ly(games_df, x = ~get(x_choice), y = ~get(y_choice), z = ~get(z_choice),
+                  hovertemplate = paste(games_df[["Name"]], "<extra></extra>",
+                                        "<br>Genre:", games_df[["Genre"]],
                                         "<br>Global Sales:",
-                                        df$Global_Sales, "<br>NA Sales:",
-                                        df$NA_Sales,
-                                        "<br>EU Sales:", df$EU_Sales,
-                                        "<br>JP Sales:", df$JP_Sales),
-                  marker = list(color = ~Global_Sales,
+                                        games_df[["Global Sales"]], "<br>NA Sales:",
+                                        games_df[["North America Sales"]],
+                                        "<br>EU Sales:", games_df[["Europe Sales"]],
+                                        "<br>JP Sales:", games_df[["Japan Sales"]],
+                                        "<br>Other Sales:", games_df[["Other Sales"]]),
+                  marker = list(color = ~get(color_choice),
                                 colorscale = c("#FFE1A1", "#683531"),
                                 showscale = TRUE)) %>%
     add_markers() %>%
     layout(title = "Comparing Games to Sales in Different Regions") %>%
-    layout(scene = list(xaxis = list(title = "North America Sales"),
-                        yaxis = list(title = "Europe Sales"),
-                        zaxis = list(title = "Japan Sales")),
+    layout(scene = list(xaxis = list(title = x_choice),
+                        yaxis = list(title = y_choice),
+                        zaxis = list(title = z_choice)),
            annotations = list(
-             x = 1.13,
+             x = 1.08,
              y = 1.05,
-             text = "Global Sales",
+             text = color_choice,
              xref = "paper",
              yref = "paper",
              showarrow = FALSE
            ))
   return(plot)
-}
-
-# Filters the data to 6 standard deviations about the mean
-filtered <- video_games_2016 %>%
-  filter(Global_Sales > mean(Global_Sales) + 6 * sd(Global_Sales))
+} 
 
 # Assigns plot to variable
-x3d_scatterplot <- make_3d_scatter(filtered)
+x3d_scatterplot <- make_3d_scatter("North America Sales","Europe Sales",
+                                   "Japan Sales", "Global Sales", 6, video_games_2016)
 
+x3d_scatterplot
 # creates pie chart of console susage for given game name
 pie_console <- function(name, df) {
 console <- df %>%

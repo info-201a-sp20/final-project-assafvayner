@@ -16,7 +16,7 @@ server <- function(input, output) {
   })
   
   output$Three_D <- renderPlotly({
-    plt <- make_3d_scatter(input$x, input$y, input$z, input$color_by)
+    plt <- make_3d_scatter(input$x, input$y, input$z, input$color_by, input$sd, df=video_games_2016)
     print(plt)
   })
 }
