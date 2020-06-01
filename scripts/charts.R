@@ -76,8 +76,6 @@ make_3d_scatter <- function(x_choice, y_choice ,z_choice, color_choice, sd_choic
 x3d_scatterplot <- make_3d_scatter("North America Sales","Europe Sales",
                                    "Japan Sales", "Global Sales", 6, video_games_2016)
 
-x3d_scatterplot
-# creates pie chart of console susage for given game name
 pie_console <- function(name, df) {
 console <- df %>%
   group_by(Name, Platform) %>%

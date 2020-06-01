@@ -23,7 +23,7 @@ y_axis_choice <- selectInput("y", "Y axis Choice", sales_lab[-1], sales_lab[3])
 z_axis_choice <- selectInput("z", "Z axis Choice", sales_lab[-1], sales_lab[4])
 color_by <- selectInput("color_by", "Color by variable", sales_lab,
                         sales_lab[1])
-sd_choice <- numericInput("sd", "Standard Deviations Above the Mean", value = 1)
+sd_choice <- numericInput("sd", "Standard Deviations Above the Mean", value = 6)
 
 ui <- fluidPage(
   titlePanel("Title"),
@@ -41,15 +41,15 @@ ui <- fluidPage(
           game_choices
         ),
         mainPanel(
-          plotOutput("pie"),
-          p("The following pie charts show a comparison between the amount of overall sales
+          plotOutput("pie")
+        )
+      ),
+      p("The following pie charts show a comparison between the amount of overall sales
             of games that are released on multiple platforms.
             The pie chart is split into different slices resembling sales
             on each platform the game is sold.This chart is included to clearly show 
             the sales among platforms for specific games to clear inquiry regarding the many inputs of a certain game.
             Here are some charts for popular games from multiple platforms:")
-        )
-      )
     ),
     tabPanel(
       "vis 2",
@@ -76,7 +76,38 @@ ui <- fluidPage(
         ),
         mainPanel(
           p("vis"),
-          plotlyOutput("Three_D")
+          plotlyOutput("Three_D"),
+          p("The following scatterplot is interactive to help
+           see how well each game performed in specific regions and globally.
+           For the axis, you can change the the different options to be" ,
+            strong("North American, Japan, European"),  "and" ,
+            strong("Other sales"),
+            ", while having the color scale to change with any of the listen
+            options about including", strong("Global sales"),". There is also
+            a number input for how many", strong("Standard Deviations"),
+            "above the mean to sort out the global sales in order for the user
+            to see results depending on how well the game did globally.
+            We decided to do an interactivescatter plot for this part in order
+            for the reader to see how the game sold in each region
+            specifically, and the color scaling helps see which games did the
+            best globally. The chart gives us the option to have 4 different
+            variables in the axis and color, while a normal scatter plot
+            only allows for 3. The graph itself was an interesting idea
+            because of how we made it", em("3 dimensional"), " and how clearly
+            you can see how some games are outperforming others overall or
+            just regionally. While hovering over each dot, you can see the
+            stats broken down along with", em("name"), " and", em("genre"),
+            ". The default data was set to 6 standard deviations above the
+            mean, but there are still many games so we can tell that there
+            have been more games that performed worse than games that have
+            been successful. We can see from the games that sold 25M +,
+            the US contributed the most out of the regions tested and so
+            we can tell that most of the game sales come from the US. The
+            genres of popular games are also diverse being Platform, Puzzle,
+            Shooter, and Role-playing so that means there is variety when
+            it comes to popular games and not one genre is dominating the
+            market."),
+
         )
       )
     ),
@@ -86,3 +117,4 @@ ui <- fluidPage(
     )
   )
 )
+
