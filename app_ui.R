@@ -36,12 +36,13 @@ ui <- fluidPage(
       p("intro info")
     ),
     tabPanel(
-      "vis 1",
+      "Visualization of Games to Different Consoles",
       sidebarLayout(
         sidebarPanel(
           game_choices
         ),
         mainPanel(
+          h1("Pie Chart"),
           plotOutput("pie"),
           p("The following", em("pie charts"), "show a comparison between the amount of overall", strong("sales"),
             "of games that are released on multiple platforms.
@@ -53,14 +54,13 @@ ui <- fluidPage(
       ),
      
     tabPanel(
-      "vis 2",
+      "Visualization of Game Genres",
       sidebarLayout(
         sidebarPanel(
-          p("widgets"),
           genre_choices
         ),
         mainPanel(
-          p("vis"),
+          h1("Barchart"),
           plotOutput("bar"),
           p("The following", em("barcharts"), "look at different genres to see which", em("games and publishers sold the most globally."), 
             "This barchart is included because
@@ -72,7 +72,7 @@ ui <- fluidPage(
       )
     ,
     tabPanel(
-      "vis 3",
+      "Visualization of Game Sales in Different Regions",
       sidebarLayout(
         sidebarPanel(
           x_axis_choice,
@@ -82,7 +82,7 @@ ui <- fluidPage(
           sd_choice
         ),
         mainPanel(
-          p("vis"),
+          h1("3D Scatterplot"),
           plotlyOutput("Three_D"),
           p("The following scatterplot is interactive to help
            see how well each game performed in specific regions and globally.
