@@ -70,7 +70,7 @@ filtered <- video_games_2016 %>%
 x3d_scatterplot <- make_3d_scatter(filtered)
 
 # creates pie chart of console susage for given game name
-pie <- function(name, df) {
+pie_console <- function(name, df) {
 console <- df %>%
   group_by(Name, Platform) %>%
   summarize(sales = sum(NA_Sales, EU_Sales, JP_Sales,
@@ -78,7 +78,7 @@ console <- df %>%
   filter(Name == name) %>%
   arrange(-sales)
 y_name <- paste0("Game: ", name)
-ggplot(console, aes(x = Name, y = sales, fill = Platform)) +
+plt <- ggplot(console, aes(x = Name, y = sales, fill = Platform)) +
   geom_bar(stat = "identity", width = 1, color = "black") +
   coord_polar("y", start = 0) +
   theme(axis.title.y = element_blank(),
@@ -88,4 +88,5 @@ ggplot(console, aes(x = Name, y = sales, fill = Platform)) +
   labs(title = "Game Sales by Console", y = y_name) +
   geom_text(aes(label = sales), position = position_stack(vjust = .5),
             color = "white", size = 3)
+return(plt)
 }
