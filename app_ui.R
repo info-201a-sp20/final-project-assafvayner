@@ -70,7 +70,7 @@ ui <- fluidPage(
         )
         )
       )
-    ),
+    ,
     tabPanel(
       "vis 3",
       sidebarLayout(
@@ -123,5 +123,5 @@ ui <- fluidPage(
       p("summary")
     )
   )
-
+)
 
