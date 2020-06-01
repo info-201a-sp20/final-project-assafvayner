@@ -1,3 +1,4 @@
+
 library(shiny)
 
 
@@ -41,16 +42,16 @@ ui <- fluidPage(
           game_choices
         ),
         mainPanel(
-          plotOutput("pie")
+          plotOutput("pie"),
+          p("The following", em("pie charts"), "show a comparison between the amount of overall", strong("sales"),
+            "of games that are released on multiple platforms.
+            The pie chart is split into different slices resembling", strong("sales
+            on each platform"), "the game is sold. This chart is included to clearly show 
+            the", em("sales among platforms"), "for specific games to clear inquiry regarding the many inputs of a certain game.")
+        )
         )
       ),
-      p("The following pie charts show a comparison between the amount of overall sales
-            of games that are released on multiple platforms.
-            The pie chart is split into different slices resembling sales
-            on each platform the game is sold.This chart is included to clearly show 
-            the sales among platforms for specific games to clear inquiry regarding the many inputs of a certain game.
-            Here are some charts for popular games from multiple platforms:")
-    ),
+     
     tabPanel(
       "vis 2",
       sidebarLayout(
@@ -60,7 +61,13 @@ ui <- fluidPage(
         ),
         mainPanel(
           p("vis"),
-          plotOutput("bar")
+          plotOutput("bar"),
+          p("The following", em("barcharts"), "look at different genres to see which", em("games and publishers sold the most globally."), 
+            "This barchart is included because
+            it is clear to see", strong("which games performed the most and which publisher produced the games."), "The usage of color
+            to", em("differentiate"), "publishers also adds to the clarity of the chart. Above are the barcharts of the", em("12"),
+            "genres, ranging from Racing to Strategy."),
+        )
         )
       )
     ),
@@ -116,5 +123,5 @@ ui <- fluidPage(
       p("summary")
     )
   )
-)
+
 
