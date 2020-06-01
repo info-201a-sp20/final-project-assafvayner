@@ -77,8 +77,37 @@ ui <- fluidPage(
           sd_choice
         ),
         mainPanel(
-          p("vis"),
-          plotlyOutput("Three_D")
+          plotlyOutput("Three_D"),
+          p("The following scatterplot is interactive to help
+           see how well each game performed in specific regions and globally.
+           For the axis, you can change the the different options to be" ,
+              strong("North American, Japan, European"),  "and" ,
+              strong("Other sales"),
+              ", while having the color scale to change with any of the listen
+            options about including", strong("Global sales"),". There is also
+            a number input for how many", strong("Standard Deviations"),
+              "above the mean to sort out the global sales in order for the user
+            to see results depending on how well the game did globally.
+            We decided to do an interactivescatter plot for this part in order
+            for the reader to see how the game sold in each region
+            specifically, and the color scaling helps see which games did the
+            best globally. The chart gives us the option to have 4 different
+            variables in the axis and color, while a normal scatter plot
+            only allows for 3. The graph itself was an interesting idea
+            because of how we made it", em("3 dimensional"), " and how clearly
+            you can see how some games are outperforming others overall or
+            just regionally. While hovering over each dot, you can see the
+            stats broken down along with", em("name"), " and", em("genre"),
+              ". The default data was set to 6 standard deviations above the
+            mean, but there are still many games so we can tell that there
+            have been more games that performed worse than games that have
+            been successful. We can see from the games that sold 25M +,
+            the US contributed the most out of the regions tested and so
+            we can tell that most of the game sales come from the US. The
+            genres of popular games are also diverse being Platform, Puzzle,
+            Shooter, and Role-playing so that means there is variety when
+            it comes to popular games and not one genre is dominating the
+            market."),
         )
       )
     ),
