@@ -15,6 +15,15 @@ game_types <- game_types[-13]
 genre_choices <- selectInput("bar_choice", label = "Genre Choice",
                              game_types, game_types[1])
 
+sales_lab <- c("Global_Sales", "NA_Sales", "EU_Sales", "JP_Sales",
+                "Other_Sales")
+
+x_axis_choice <- selectInput("x", "X axis Choice", sales_lab[-1], sales_lab[2])
+y_axis_choice <- selectInput("y", "Y axis Choice", sales_lab[-1], sales_lab[3])
+z_axis_choice <- selectInput("z", "Z axis Choice", sales_lab[-1], sales_lab[4])
+color_by <- selectInput("color_by", "Color by variable", sales_lab,
+                        sales_lab[1])
+
 ui <- fluidPage(
   titlePanel("Title"),
 
@@ -53,10 +62,14 @@ ui <- fluidPage(
       "vis 3",
       sidebarLayout(
         sidebarPanel(
-          p("widgets")
+          x_axis_choice,
+          y_axis_choice,
+          z_axis_choice,
+          color_by
         ),
         mainPanel(
-          p("vis")
+          p("vis"),
+          plotlyOutput("Three_D")
         )
       )
     ),

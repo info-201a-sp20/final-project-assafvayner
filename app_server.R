@@ -14,4 +14,9 @@ server <- function(input, output) {
     plt <- barplot_genre_publisher(choice, df = video_games_2016)
     plot(plt)
   })
+  
+  output$Three_D <- renderPlotly({
+    plt <- make_3d_scatter(input$x, input$y, input$z, input$color_by)
+    print(plt)
+  })
 }
