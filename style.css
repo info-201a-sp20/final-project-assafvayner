@@ -1,0 +1,19 @@
+body {
+  background: lightblue;
+  font-family: "Times New Roman", times, serif;
+  font-size: 18px;
+}
+
+h1 {
+  font-family: "Marker Felt", "Jazz LET", fantasy;
+  font-size: 40px;
+}
+
+h2 {
+  font-style: italic;
+  font-size: 25px;
+}
+
+img {
+  border: 3px solid black;
+}
