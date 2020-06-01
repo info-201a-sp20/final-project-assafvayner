@@ -20,3 +20,4 @@ server <- function(input, output) {
     print(plt)
   })
 }
+

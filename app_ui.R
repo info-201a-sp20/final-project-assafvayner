@@ -40,7 +40,12 @@ ui <- fluidPage(
           game_choices
         ),
         mainPanel(
-          p("vis"),
+          p("The following pie charts show a comparison between the amount of overall sales
+            of games that are released on multiple platforms.
+            The pie chart is split into different slices resembling sales
+            on each platform the game is sold.This chart is included to clearly show 
+            the sales among platforms for specific games to clear inquiry regarding the many inputs of a certain game.
+            Here are some charts for popular games from multiple platforms:"),
           plotOutput("pie")
         )
       )
@@ -79,3 +84,4 @@ ui <- fluidPage(
     )
   )
 )
+
