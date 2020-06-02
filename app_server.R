@@ -2,6 +2,7 @@ library(shiny)
 source("scripts/charts.R")
 source("scripts/summary_table.R")
 
+
 server <- function(input, output) {
   output$pie <- renderPlot({
     choice <- input$pie_choice
@@ -23,5 +24,6 @@ server <- function(input, output) {
   })
   
   output$table <- renderTable(publisher_table)
+  output$pt_table <- renderTable(averageplaytimes)
 }
 

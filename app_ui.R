@@ -169,14 +169,20 @@ ui <- fluidPage(
       "Summary",
       h2("Popularity Based on Region"),
       p(
-        "On interesting trend we noticed when looking at top genres, publishers
-        and consoles across different regions, was that North America, Europe 
+        "On interesting trend we noticed when looking at top genres and 
+        publishers across different regions, was that North America, Europe 
         and Japan all appear to have similar popularity rankings around these 
         given topics. However, Japan appeared to be a slight outlier as there 
         were a few different publishers and genres dominating their lists whereas 
-        North America and Europes rankings aligned.", br(), vector3_to_string(global_publisher)
-        ),
-      p("Top Genres:"),
+        North America and Europes rankings aligned."),
+      h4("Top Genres"),
+      p("North America: ", vector3_to_string(na_genres), br(),
+        "Europe: ", vector3_to_string(eu_genres), br(),
+        "Japan: ", vector3_to_string(jp_genres)),
+      h4("Top Publishers"),
+      p("North America: ", vector3_to_string(na_publisher), br(),
+        "Europe: ", vector3_to_string(eu_publisher), br(),
+        "Japan: ", vector3_to_string(jp_publisher)),
       h2("Age Restrictions"),
       p(
         "One piece of information our group was interested in analyzing, was
@@ -189,16 +195,26 @@ ui <- fluidPage(
         getting more playtime. Nevertheless, it was interesting to discover that
         games with no age restriction got the most playtime."
       ),
-      h2("Multiplayer vs. Singleplayer"),
-      p(
-        "One of the last pieces of information we were interested in was the
-        playtime on games that are multiplayer vs singleplayer. From this, we
-        were able to discover that singleplayer games get slightly more playtime
-        on average than multiplayer games."
-      ),
+      h4("Playtimes by Age Group"),
+      tableOutput("pt_table"),
       h2("Summary Table"),
-      p("dadadad"),
+      p("This table is made of publishers who had global sales greater than 
+      2 standard deviations from the mean global sales of all publishers. 
+      The Global Popularity column is calculated by the reciprocal of the 
+      multiplication of the disparities between the NA, EU, JP and other Sales 
+      normalized to be from 0 to 1 by deviding by global sales.", br(),
+      "The Popularity Rank column helps to show which Publishers have higher 
+      Global Popularity values. The goal of this measurement is to show which 
+      video game publishers do well across all regions rather than in a 
+      single region.", br(), "This shows that while NA has greater over all 
+      Global Sales, Konami Digital Entertainment does a better job at selling 
+      their products across the world at more similar rate. The Sales values 
+      are included as is the Global Popularity score to present the actual 
+      differences in sales, and it is apparent from the tables that the 
+      publishers with sales numbers closer to each other have a lower 
+      popularity score and rank."),
       tableOutput("table")
     )
   )
 )
+
