@@ -12,6 +12,7 @@ game_choices <- selectInput("pie_choice",
   games, games[1]
 )
 
+
 game_types <- video_games_2016 %>%
   pull(Genre) %>%
   unique()
@@ -140,9 +141,16 @@ ui <- fluidPage(
       )
     ),
     tabPanel(
-      "summary",
-      h2("summary end"),
-      p("summary")
+      "Summary",
+      h2("Genre"),
+      p(
+        "From our analysis, we were able to discover that based on sales, 
+        worldwide the top genres were Action, Sports, and Shooter games. 
+        However, there was one outlier in the individual regions as Japans
+        top 3 genres included Role-Play as the #1, then Action and Sports,
+        whereas for Europe and North America shooter games were more popular."
+        )
     )
   )
 )
+
