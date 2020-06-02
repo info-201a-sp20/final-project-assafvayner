@@ -1,6 +1,7 @@
 library(plotly)
 library(shiny)
 library(dplyr)
+source("scripts/charts.R")
 
 games <- c(
   "Grand Theft Auto V", "Call of Duty: Black Ops 3", "Mario Kart 7",
@@ -42,9 +43,30 @@ ui <- fluidPage(
 
   tabsetPanel(
     tabPanel(
-      "Intro",
-      h2("introd"),
-      p("intro info")
+      "Introduction to the Project",
+      h2("Looking At Some Video Game Data"),
+      p(paste("In this project we examined the world of video games, looking",
+               "at popularity, sales, and the variety of video games on the",
+               "market. The questions we explored in this final version of the",
+               "project were: how do the sales of popular video games compare",
+               "across different regions, which consoles are more popular for",
+               "a few popular games, and which games sell the best within each",
+               "genre. We utilized a 3 datasets in the beginning however",
+               "only one is used in this final iteration of the project.")),
+      HTML('<center><img src = "controller.jpg"></center>'),
+      p(paste("The dataset we used contains information about the sales of",
+              "video games in multiple regions blocked by console used to play",
+              "each game. This data contains such information as well as a few",
+              "more attributes such as the developer and publisher of the ",
+              "game for all popular games from the 1980's to 2016. We found",
+              "this data on kaggle and can be found at this "),
+        a(href = paste0("https://www.kaggle.com/sidtwr/videogames-sales-dataset
+                        ?select=Video_Games_Sales_as_at_22_Dec_2016.csv"),
+                        "link"),
+        "."
+        ),
+      HTML('<center><img src = "switch.jpg"></center>'),
+      br()
     ),
     tabPanel(
       "Visualization of Games to Different Consoles",
