@@ -1,5 +1,6 @@
 library(shiny)
 source("scripts/charts.R")
+# source("scripts/summary_questions.R")
 
 server <- function(input, output) {
   output$pie <- renderPlot({
@@ -21,3 +22,4 @@ server <- function(input, output) {
     print(plt)
   })
 }
+

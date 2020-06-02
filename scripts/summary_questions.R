@@ -50,6 +50,7 @@ top_consoles <- function(region) {
     slice(1:3) %>%
     pull(Platform)
 }
+
 na_platform <- top_consoles("NA_Sales")
 jp_platform <- top_consoles("JP_Sales")
 eu_platform <- top_consoles("EU_Sales")
@@ -81,3 +82,4 @@ steam_multiplayer_playtime <- steam %>%
             multiplayer_playtime = round(mean(multiplayer_playtime), 2),
             num_not_multi = sum(not_multiplayer),
             non_multi_playtime = round(mean(non_multi_playtime), 2))
+

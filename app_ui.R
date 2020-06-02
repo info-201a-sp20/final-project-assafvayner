@@ -164,32 +164,16 @@ ui <- fluidPage(
     ),
     tabPanel(
       "Summary",
-      h2("Genre"),
+      h2("Popularity Based on Region"),
       p(
-        "From our analysis, we were able to discover that based on sales,
-        worldwide the top genres were Action, Sports, and Shooter games.
-        However, there was one outlier in the individual regions as Japans
-        top 3 genres included Role-Play as the #1, then Action and Sports,
-        whereas for Europe and North America shooter games were more popular.
-        This begins one common trend we see throughout the data which shows that
-        the US and Europe tend to have similar rankings wheras Japan has its
-        own."
+        "On interesting trend we noticed when looking at top genres, publishers
+        and consoles across different regions, was that North America, Europe 
+        and Japan all appear to have similar popularity rankings around these 
+        given topics. However, Japan appeared to be a slight outlier as there 
+        were a few different publishers and genres dominating their lists whereas 
+        North America and Europes rankings aligned."
         ),
-      h2("Consoles"),
-      p(
-        "From our research we discovered that across all regions in 2016, the
-        top 3 consoles were the 2600, the 3DO and the 3DS."
-      ),
-      h2("Publishers"),
-      p(
-        "When looking at top publishers across various regions, the worldwide
-        top publishers in 2016 were Nintendo, Electronic Arts and Activision.
-        These 3 publishers are the top 3 in both the US and Europe, however, in
-        Japan the top 3 are Nintendo, Namco Bandai, and Konami Digital
-        Entertainment. This is interesting as it follows the trend that Japan
-        has different popular trends in gaming than the US and Europe who
-        generally are the same."
-      ),
+      p("Top Genres:"),
       h2("Age Restrictions"),
       p(
         "One piece of information our group was interested in analyzing, was
