@@ -126,7 +126,7 @@ ui <- fluidPage(
         ),
         mainPanel(
           h2("3D Scatterplot"),
-          plotlyOutput("Three_D"),
+          plotlyOutput("three_d"),
           p(
             "The following scatterplot is interactive to help
            see how well each game performed in specific regions and globally.
@@ -166,48 +166,49 @@ ui <- fluidPage(
       "Summary",
       h2("Genre"),
       p(
-        "From our analysis, we were able to discover that based on sales, 
-        worldwide the top genres were Action, Sports, and Shooter games. 
+        "From our analysis, we were able to discover that based on sales,
+        worldwide the top genres were Action, Sports, and Shooter games.
         However, there was one outlier in the individual regions as Japans
         top 3 genres included Role-Play as the #1, then Action and Sports,
-        whereas for Europe and North America shooter games were more popular. 
+        whereas for Europe and North America shooter games were more popular.
         This begins one common trend we see throughout the data which shows that
-        the US and Europe tend to have similar rankings wheras Japan has its own."
+        the US and Europe tend to have similar rankings wheras Japan has its
+        own."
         ),
       h2("Consoles"),
       p(
-        "From our research we discovered that across all regions in 2016, the top 
-        3 consoles were the 2600, the 3DO and the 3DS."
+        "From our research we discovered that across all regions in 2016, the
+        top 3 consoles were the 2600, the 3DO and the 3DS."
       ),
       h2("Publishers"),
       p(
-        "When looking at top publishers across various regions, the worldwide top
-        publishers in 2016 were Nintendo, Electronic Arts and Activision. These 3 
-        publishers are the top 3 in both the US and Europe, however, in Japan the
-        top 3 are Nintendo, Namco Bandai, and Konami Digital Entertainment. This
-        is interesting as it follows the trend that Japan has different popular 
-        trends in gaming than the US and Europe who generally are the same."
+        "When looking at top publishers across various regions, the worldwide
+        top publishers in 2016 were Nintendo, Electronic Arts and Activision.
+        These 3 publishers are the top 3 in both the US and Europe, however, in
+        Japan the top 3 are Nintendo, Namco Bandai, and Konami Digital
+        Entertainment. This is interesting as it follows the trend that Japan
+        has different popular trends in gaming than the US and Europe who
+        generally are the same."
       ),
       h2("Age Restrictions"),
       p(
-        "One piece of information our group was interested in analyzing, was 
+        "One piece of information our group was interested in analyzing, was
         whether or not the playtime on various Steam games had to do with age
-        restrictions. The age restriction with the least playtime was age 7. While
-        this may be assumed being that children at this age generally have their
-        screentime monitored, we found it interesting that games with 0 age 
-        restrictions got the most playtime. This debunked our theory that
+        restrictions. The age restriction with the least playtime was age 7.
+        While this may be assumed being that children at this age generally have
+        their screentime monitored, we found it interesting that games with 0
+        age restrictions got the most playtime. This debunked our theory that
         age restriction and playtime may correlate with higher age restrictions
-        getting more playtime. Nevertheless, it was interesting to discover that 
+        getting more playtime. Nevertheless, it was interesting to discover that
         games with no age restriction got the most playtime."
       ),
       h2("Multiplayer vs. Singleplayer"),
       p(
-        "One of the last pieces of information we were interested in was the 
-        playtime on games that are multiplayer vs singleplayer. From this, we 
-        were able to discover that singleplayer games get slightly more playtime 
+        "One of the last pieces of information we were interested in was the
+        playtime on games that are multiplayer vs singleplayer. From this, we
+        were able to discover that singleplayer games get slightly more playtime
         on average than multiplayer games."
       )
     )
   )
 )
-

@@ -36,23 +36,29 @@ platform_barchart <- barplot_genre_publisher("Platform", video_games_2016)
 # and color scaling with global sales
 
 
-make_3d_scatter <- function(x_choice, y_choice ,z_choice, color_choice, sd_choice, df) {
-  games_df<- df %>%
-    filter(Global_Sales > mean(Global_Sales) + sd_choice * sd(Global_Sales)) %>% 
+make_3d_scatter <- function(x_choice, y_choice, z_choice, color_choice,
+                            sd_choice, df) {
+  games_df <- df %>%
+    filter(Global_Sales > mean(Global_Sales) + sd_choice * sd(Global_Sales)) %>%
     rename("Japan Sales" = JP_Sales,
            "North America Sales" = NA_Sales,
            "Europe Sales" = EU_Sales,
            "Other Sales" = Other_Sales,
            "Global Sales" = Global_Sales)
-  plot <- plot_ly(games_df, x = ~get(x_choice), y = ~get(y_choice), z = ~get(z_choice),
+  plot <- plot_ly(games_df, x = ~get(x_choice), y = ~get(y_choice),
+                  z = ~get(z_choice),
                   hovertemplate = paste(games_df[["Name"]], "<extra></extra>",
                                         "<br>Genre:", games_df[["Genre"]],
                                         "<br>Global Sales:",
-                                        games_df[["Global Sales"]], "<br>NA Sales:",
+                                        games_df[["Global Sales"]],
+                                        "<br>NA Sales:",
                                         games_df[["North America Sales"]],
-                                        "<br>EU Sales:", games_df[["Europe Sales"]],
-                                        "<br>JP Sales:", games_df[["Japan Sales"]],
-                                        "<br>Other Sales:", games_df[["Other Sales"]]),
+                                        "<br>EU Sales:",
+                                        games_df[["Europe Sales"]],
+                                        "<br>JP Sales:",
+                                        games_df[["Japan Sales"]],
+                                        "<br>Other Sales:",
+                                        games_df[["Other Sales"]]),
                   marker = list(color = ~get(color_choice),
                                 colorscale = c("#FFE1A1", "#683531"),
                                 showscale = TRUE)) %>%
@@ -70,11 +76,12 @@ make_3d_scatter <- function(x_choice, y_choice ,z_choice, color_choice, sd_choic
              showarrow = FALSE
            ))
   return(plot)
-} 
+}
 
 # Assigns plot to variable
-x3d_scatterplot <- make_3d_scatter("North America Sales","Europe Sales",
-                                   "Japan Sales", "Global Sales", 6, video_games_2016)
+x3d_scatterplot <- make_3d_scatter("North America Sales", "Europe Sales",
+                                   "Japan Sales", "Global Sales", 6,
+                                   video_games_2016)
 
 pie_console <- function(name, df) {
 console <- df %>%
