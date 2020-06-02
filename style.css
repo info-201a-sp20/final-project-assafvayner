@@ -14,6 +14,11 @@ h2 {
   font-size: 25px;
 }
 
+h3 {
+  font-style: italic;
+  font-family: "Helvetica", contiga;
+}
+
 img {
   border: 3px solid black;
 }
