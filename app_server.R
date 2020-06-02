@@ -1,6 +1,6 @@
 library(shiny)
 source("scripts/charts.R")
-# source("scripts/summary_questions.R")
+source("scripts/summary_table.R")
 
 server <- function(input, output) {
   output$pie <- renderPlot({
@@ -21,5 +21,7 @@ server <- function(input, output) {
                            df = video_games_2016)
     print(plt)
   })
+  
+  output$table <- renderTable(publisher_table)
 }
 

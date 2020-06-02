@@ -2,6 +2,8 @@ library(plotly)
 library(shiny)
 library(dplyr)
 source("scripts/charts.R")
+source("scripts/summary_questions.R")
+
 
 games <- c(
   "Grand Theft Auto V", "Call of Duty: Black Ops 3", "Mario Kart 7",
@@ -40,7 +42,8 @@ sd_choice <- numericInput("sd", "Standard Deviations Above the Mean", value = 6)
 
 ui <- fluidPage(
   includeCSS("style.css"),
-  h1("Title"),
+  h1("Analysis of Video Game Data"),
+  h3("By ..."),
 
   tabsetPanel(
     tabPanel(
@@ -171,7 +174,7 @@ ui <- fluidPage(
         and Japan all appear to have similar popularity rankings around these 
         given topics. However, Japan appeared to be a slight outlier as there 
         were a few different publishers and genres dominating their lists whereas 
-        North America and Europes rankings aligned."
+        North America and Europes rankings aligned.", br(), vector3_to_string(global_publisher)
         ),
       p("Top Genres:"),
       h2("Age Restrictions"),
@@ -192,7 +195,10 @@ ui <- fluidPage(
         playtime on games that are multiplayer vs singleplayer. From this, we
         were able to discover that singleplayer games get slightly more playtime
         on average than multiplayer games."
-      )
+      ),
+      h2("Summary Table"),
+      p("dadadad"),
+      tableOutput("table")
     )
   )
 )

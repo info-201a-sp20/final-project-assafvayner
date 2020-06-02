@@ -8,11 +8,11 @@ videogames_2016 <- read.csv("./data/Video_Games_Sales_as_at_22_Dec_2016.csv",
 videogames_2016 <- videogames_2016[-1, ] # remove outlier wii sports
 
 vector3_to_string <- function(vec) {
-  res <- paste(vec[1], ", ", vec[2], "and", vec[3])
+  res <- paste0(vec[1], ", ", vec[2], " and ", vec[3])
   return(res)
 }
 
-#Which publisher sold the most games in North America, Europe, Japan, and
+# Which publisher sold the most games in North America, Europe, Japan, and
 # globally?
 top3_publishers <- function(region_sales) {
   videogames_2016 %>%
@@ -82,4 +82,3 @@ steam_multiplayer_playtime <- steam %>%
             multiplayer_playtime = round(mean(multiplayer_playtime), 2),
             num_not_multi = sum(not_multiplayer),
             non_multi_playtime = round(mean(non_multi_playtime), 2))
-

@@ -21,7 +21,7 @@ barplot_genre_publisher <- function(genre, df) {
     geom_bar(stat = "identity") +
     labs(title = paste0("Global Game sales in ", genre),
          x = "Game", y = "Global Sales") +
-    theme(axis.text.x = element_text(angle = 70, vjust = 0.5))
+    theme(axis.text.x = element_text(angle = 90, vjust = 0.5))
   return(bar)
 }
 
@@ -34,7 +34,6 @@ platform_barchart <- barplot_genre_publisher("Platform", video_games_2016)
 
 # Function for 3d scatter plot with Na, Eu, and JP sales on axis
 # and color scaling with global sales
-
 
 make_3d_scatter <- function(x_choice, y_choice, z_choice, color_choice,
                             sd_choice, df) {
