@@ -6,7 +6,7 @@ source("scripts/summary_questions.R")
 
 
 games <- c(
-  "Grand Theft Auto V", "Call of Duty: Black Ops 3", "Mario Kart 7",
+  "Grand Theft Auto V", "Call of Duty: Black Ops 3", "Mario Kart 8",
   "Halo 3", "Minecraft"
 )
 
@@ -33,7 +33,8 @@ sales_lab <- c(
 
 x_axis_choice <- selectInput("x", "X axis Choice", sales_lab[-1], sales_lab[2])
 y_axis_choice <- selectInput("y", "Y axis Choice", sales_lab[-1], sales_lab[3])
-z_axis_choice <- selectInput("z", "Z axis Choice", sales_lab[-1], sales_lab[4])
+z_axis_choice <- selectInput("z", "Z axis Choice (for 3D plot only)",
+                             sales_lab[-1], sales_lab[4])
 color_by <- selectInput(
   "color_by", "Color by variable", sales_lab,
   sales_lab[1]
@@ -43,11 +44,11 @@ sd_choice <- numericInput("sd", "Standard Deviations Above the Mean", value = 6)
 ui <- fluidPage(
   includeCSS("style.css"),
   h1("Analysis of Video Game Data"),
-  h3("By ..."),
+  h3("By Tommy Lam, Eric Le, Maya Nair, Assaf Vayner for INFO 201 SP20"),
 
   tabsetPanel(
     tabPanel(
-      "Introduction to the Project",
+      "Introduction",
       h2("Looking At Some Video Game Data"),
       p(paste("In this project we examined the world of video games, looking",
                "at popularity, sales, and the variety of video games on the",
@@ -73,7 +74,7 @@ ui <- fluidPage(
       br()
     ),
     tabPanel(
-      "Visualization of Games to Different Consoles",
+      "Games to Different Consoles",
       sidebarLayout(
         sidebarPanel(
           game_choices
@@ -96,7 +97,7 @@ ui <- fluidPage(
     ),
 
     tabPanel(
-      "Visualization of Game Genres",
+      "Game Genres",
       sidebarLayout(
         sidebarPanel(
           genre_choices
@@ -118,7 +119,7 @@ ui <- fluidPage(
       )
     ),
     tabPanel(
-      "Visualization of Game Sales in Different Regions",
+      "Game Sales in Different Regions",
       sidebarLayout(
         sidebarPanel(
           x_axis_choice,
@@ -128,9 +129,9 @@ ui <- fluidPage(
           sd_choice
         ),
         mainPanel(
-          h2("3D Scatterplot"),
-          plotlyOutput("three_d"),
           p(
+            h2("2D plot"),
+            plotlyOutput("two_D"),
             "The following scatterplot is interactive to help
            see how well each game performed in specific regions and globally.
            For the axis, you can change the the different options to be",
@@ -162,6 +163,8 @@ ui <- fluidPage(
             it comes to popular games and not one genre is dominating the
             market."
           ),
+          h2("3D Scatterplot"),
+          plotlyOutput("three_d"),
         )
       )
     ),
