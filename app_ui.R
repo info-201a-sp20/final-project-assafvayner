@@ -26,7 +26,7 @@ game_types <- game_types[-13]
 # creates select widget for barchart with genre
 genre_choices <- selectInput("bar_choice",
   label = "Genre Choice",
-  game_types, game_types[1]
+  game_types, "Strategy"
 )
 
 # creates list of sale locations
