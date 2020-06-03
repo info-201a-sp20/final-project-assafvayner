@@ -1,3 +1,4 @@
+# Must Run App before using lintr
 library(shiny)
 
 source("app_ui.R")

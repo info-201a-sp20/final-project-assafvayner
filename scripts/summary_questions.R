@@ -58,7 +58,7 @@ eu_platform <- top_consoles("EU_Sales")
 # What age restriction gets the least and most playtime on Steam?
 average_playtimes <- steam %>%
   group_by(required_age) %>%
-  summarise(playtime = sum(average_playtime))  
+  summarise(playtime = sum(average_playtime))
 colnames(average_playtimes) <- c("Required Age", "Playtime")
 
 most_play_time <- steam %>%

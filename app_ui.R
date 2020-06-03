@@ -1,3 +1,4 @@
+# Must Run App before using lintr
 library(plotly)
 library(shiny)
 library(dplyr)
@@ -34,7 +35,8 @@ sales_lab <- c(
   "Other Sales"
 )
 
-# creates select widgets for scatterplot(x, y, z, color choice, and standard deviation)
+# creates select widgets for scatterplot(x, y, z, color choice, and
+# standard deviation)
 x_axis_choice <- selectInput("x", "X axis Choice", sales_lab[-1], sales_lab[2])
 y_axis_choice <- selectInput("y", "Y axis Choice", sales_lab[-1], sales_lab[3])
 z_axis_choice <- selectInput("z", "Z axis Choice (for 3D plot only)",
@@ -64,6 +66,7 @@ ui <- fluidPage(
                "genre. We utilized a 3 datasets in the beginning however",
                "only one is used in this final iteration of the project.")),
       br(),
+      # image
       HTML('<center><img src = "controller.jpg"></center>'),
       br(),
       p(paste("The dataset we used contains information about the sales of",
@@ -78,6 +81,7 @@ ui <- fluidPage(
         "."
         ),
       br(),
+      # image
       HTML('<center><img src = "switch.jpg"></center>'),
       br()
     ),
@@ -94,8 +98,8 @@ ui <- fluidPage(
             "The following", em("pie charts"), "show a comparison between the
             amount of overall", strong("sales"),
             "of games that are released on multiple platforms.
-            Each price of the bar chart is represented in", strong("millions") ,".
-            The pie chart is split into different slices resembling",
+            Each price of the bar chart is represented in", strong("millions"),
+            ". The pie chart is split into different slices resembling",
             strong("sales on each platform"), "the game is sold. This chart is
             included to clearly show the", em("sales among platforms"),
             "for specific games to clear inquiry regarding the many inputs of a
@@ -155,7 +159,7 @@ ui <- fluidPage(
             a number input for how many", strong("Standard Deviations"),
             "above the mean to sort out the global sales in order for the user
             to see results depending on how well the game did globally.
-            Each price is represented in", strong("millions"),". 
+            Each price is represented in", strong("millions"), ".
             We decided to do an interactivescatter plot for this part in order
             for the reader to see how the game sold in each region
             specifically, and the color scaling helps see which games did the
@@ -186,12 +190,12 @@ ui <- fluidPage(
       "Summary",
       h2("Popularity Based on Region"),
       p(
-        "On interesting trend we noticed when looking at top genres and 
-        publishers across different regions, was that North America, Europe 
-        and Japan all appear to have similar popularity rankings around these 
-        given topics. However, Japan appeared to be a slight outlier as there 
-        were a few different publishers and genres dominating their lists whereas 
-        North America and Europes rankings aligned."),
+        "On interesting trend we noticed when looking at top genres and
+        publishers across different regions, was that North America, Europe
+        and Japan all appear to have similar popularity rankings around these
+        given topics. However, Japan appeared to be a slight outlier as there
+        were a few different publishers and genres dominating their lists
+        whereas North America and Europes rankings aligned."),
       h4("Top Genres"),
       p("North America: ", vector3_to_string(na_genres), br(),
         "Europe: ", vector3_to_string(eu_genres), br(),
@@ -215,23 +219,22 @@ ui <- fluidPage(
       h4("Playtimes by Age Group"),
       tableOutput("pt_table"),
       h2("Summary Table"),
-      p("This table is made of publishers who had global sales greater than 
-      2 standard deviations from the mean global sales of all publishers. 
-      The Global Popularity column is calculated by the reciprocal of the 
-      multiplication of the disparities between the NA, EU, JP and other Sales 
+      p("This table is made of publishers who had global sales greater than
+      2 standard deviations from the mean global sales of all publishers.
+      The Global Popularity column is calculated by the reciprocal of the
+      multiplication of the disparities between the NA, EU, JP and other Sales
       normalized to be from 0 to 1 by deviding by global sales.", br(),
-      "The Popularity Rank column helps to show which Publishers have higher 
-      Global Popularity values. The goal of this measurement is to show which 
-      video game publishers do well across all regions rather than in a 
-      single region.", br(), "This shows that while NA has greater over all 
-      Global Sales, Konami Digital Entertainment does a better job at selling 
-      their products across the world at more similar rate. The Sales values 
-      are included as is the Global Popularity score to present the actual 
-      differences in sales, and it is apparent from the tables that the 
-      publishers with sales numbers closer to each other have a lower 
+      "The Popularity Rank column helps to show which Publishers have higher
+      Global Popularity values. The goal of this measurement is to show which
+      video game publishers do well across all regions rather than in a
+      single region.", br(), "This shows that while NA has greater over all
+      Global Sales, Konami Digital Entertainment does a better job at selling
+      their products across the world at more similar rate. The Sales values
+      are included as is the Global Popularity score to present the actual
+      differences in sales, and it is apparent from the tables that the
+      publishers with sales numbers closer to each other have a lower
       popularity score and rank."),
       tableOutput("table")
     )
   )
 )
-

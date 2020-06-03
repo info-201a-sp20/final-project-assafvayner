@@ -83,9 +83,9 @@ x3d_scatterplot <- make_3d_scatter("North America Sales", "Europe Sales",
                                    video_games_2016)
 
 # Function for creating 2D scatter plot
-make_2d_scatter <- function(x_choice, y_choice , color_choice, sd_choice, df) {
-  games_df<- df %>%
-    filter(Global_Sales > mean(Global_Sales) + sd_choice * sd(Global_Sales)) %>% 
+make_2d_scatter <- function(x_choice, y_choice, color_choice, sd_choice, df) {
+  games_df <- df %>%
+    filter(Global_Sales > mean(Global_Sales) + sd_choice * sd(Global_Sales)) %>%
     rename("Japan Sales" = JP_Sales,
            "North America Sales" = NA_Sales,
            "Europe Sales" = EU_Sales,
@@ -95,11 +95,15 @@ make_2d_scatter <- function(x_choice, y_choice , color_choice, sd_choice, df) {
                   hovertemplate = paste(games_df[["Name"]], "<extra></extra>",
                                         "<br>Genre:", games_df[["Genre"]],
                                         "<br>Global Sales:",
-                                        games_df[["Global Sales"]], "<br>NA Sales:",
+                                        games_df[["Global Sales"]],
+                                        "<br>NA Sales:",
                                         games_df[["North America Sales"]],
-                                        "<br>EU Sales:", games_df[["Europe Sales"]],
-                                        "<br>JP Sales:", games_df[["Japan Sales"]],
-                                        "<br>Other Sales:", games_df[["Other Sales"]]),
+                                        "<br>EU Sales:",
+                                        games_df[["Europe Sales"]],
+                                        "<br>JP Sales:",
+                                        games_df[["Japan Sales"]],
+                                        "<br>Other Sales:",
+                                        games_df[["Other Sales"]]),
                   marker = list(color = ~get(color_choice),
                                 colorscale = "Portland",
                                 showscale = TRUE)) %>%

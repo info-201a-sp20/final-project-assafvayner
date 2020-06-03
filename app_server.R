@@ -1,6 +1,8 @@
+# Must Run App before using lintr
 library(shiny)
 source("scripts/charts.R")
 source("scripts/summary_table.R")
+source("scripts/summary_questions.R")
 
 
 server <- function(input, output) {
@@ -21,14 +23,13 @@ server <- function(input, output) {
                            df = video_games_2016)
     print(plt)
   })
-  
+
   output$two_d <- renderPlot({
     plt <- make_2d_scatter(input$x, input$y, input$color_by, input$sd,
                            df = video_games_2016)
     print(plt)
   })
-  
-  output$table <- renderTable(publisher_table)
-  output$pt_table <- renderTable(averageplaytimes)
-}
 
+  output$table <- renderTable(publisher_table, align = "rccccccc")
+  output$pt_table <- renderTable(average_playtimes, align = "cc")
+}
