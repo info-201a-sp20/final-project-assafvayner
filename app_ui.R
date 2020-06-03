@@ -186,8 +186,10 @@ ui <- fluidPage(
         )
       )
     ),
+    # Summary Page
     tabPanel(
       "Summary",
+      # Showcases trend in popular rankings of genres and publishers
       h2("Popularity Based on Region"),
       p(
         "On interesting trend we noticed when looking at top genres and
@@ -196,14 +198,17 @@ ui <- fluidPage(
         given topics. However, Japan appeared to be a slight outlier as there
         were a few different publishers and genres dominating their lists
         whereas North America and Europes rankings aligned."),
+      # Shows list of top genres in each region
       h4("Top Genres"),
       p("North America: ", vector3_to_string(na_genres), br(),
         "Europe: ", vector3_to_string(eu_genres), br(),
         "Japan: ", vector3_to_string(jp_genres)),
+      # Shows list of top publishers in a given region
       h4("Top Publishers"),
       p("North America: ", vector3_to_string(na_publisher), br(),
         "Europe: ", vector3_to_string(eu_publisher), br(),
         "Japan: ", vector3_to_string(jp_publisher)),
+      # Discusses findings on restrictions and playtime
       h2("Age Restrictions"),
       p(
         "One piece of information our group was interested in analyzing, was
@@ -217,7 +222,9 @@ ui <- fluidPage(
         games with no age restriction got the most playtime."
       ),
       h4("Playtimes by Age Group"),
+      # Renders table of age restrictions and playtime
       tableOutput("pt_table"),
+      # Showcases trends discovered in the summmary table
       h2("Summary Table"),
       p("This table is made of publishers who had global sales greater than
       2 standard deviations from the mean global sales of all publishers.
@@ -234,6 +241,7 @@ ui <- fluidPage(
       differences in sales, and it is apparent from the tables that the
       publishers with sales numbers closer to each other have a lower
       popularity score and rank."),
+      #Renders summary table
       tableOutput("table")
     )
   )
