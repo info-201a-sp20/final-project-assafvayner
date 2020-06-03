@@ -89,7 +89,7 @@ ui <- fluidPage(
         ),
         mainPanel(
           h2("Pie Chart"),
-          plotOutput("pie"),
+          plotlyOutput("pie"),
           p(
             "The following", em("pie charts"), "show a comparison between the
             amount of overall", strong("sales"),

@@ -114,8 +114,7 @@ make_2d_scatter <- function(x_choice, y_choice , color_choice, sd_choice, df) {
 pie_console <- function(name, df) {
 console <- df %>%
   group_by(Name, Platform) %>%
-  summarize(sales = sum(NA_Sales, EU_Sales, JP_Sales,
-                        Other_Sales, Global_Sales)) %>%
+  summarize(sales = sum(Global_Sales)) %>%
   filter(Name == name) %>%
   arrange(-sales)
 y_name <- paste0("Game: ", name)
@@ -131,3 +130,23 @@ plt <- ggplot(console, aes(x = Name, y = sales, fill = Platform)) +
             color = "white", size = 3)
 return(plt)
 }
+
+#Pie Chart Plotly
+pie_plotly <- function(game_name, df) {
+  console <- df %>%
+    group_by(Name, Platform) %>%
+    summarize(sales = sum(Global_Sales)) %>%
+    filter(Name == game_name) %>%
+    arrange(-sales)
+  pie_plot <- plot_ly(console,
+labels = ~Platform,
+values = ~sales,
+type = "pie",
+hovertemplate = "Platform: %{label} <br> Global Sales: %{value}<extra></extra>",
+title = paste0(game_name, " Sales by Console"),
+text = ~Platform,
+textinfo = "text"
+                      )
+  return(pie_plot)
+}
+gta <- pie_plotly("Grand Theft Auto V", video_games_2016)
