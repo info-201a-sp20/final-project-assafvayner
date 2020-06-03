@@ -4,33 +4,37 @@ library(dplyr)
 source("scripts/charts.R")
 source("scripts/summary_questions.R")
 
-
+# creates list of games
 games <- c(
   "Grand Theft Auto V", "Call of Duty: Black Ops 3", "Mario Kart 8",
   "Halo 3", "Minecraft"
 )
 
+# creates select widget for piechart with games
 game_choices <- selectInput("pie_choice",
   label = "Game Series Choice",
   games, games[1]
 )
 
-
+# creates vector of genres
 game_types <- video_games_2016 %>%
   pull(Genre) %>%
   unique()
 game_types <- game_types[-13]
 
+# creates select widget for barchart with genre
 genre_choices <- selectInput("bar_choice",
   label = "Genre Choice",
   game_types, game_types[1]
 )
 
+# creates list of sale locations
 sales_lab <- c(
   "Global Sales", "North America Sales", "Europe Sales", "Japan Sales",
   "Other Sales"
 )
 
+# creates select widgets for scatterplot(x, y, z, color choice, and standard deviation)
 x_axis_choice <- selectInput("x", "X axis Choice", sales_lab[-1], sales_lab[2])
 y_axis_choice <- selectInput("y", "Y axis Choice", sales_lab[-1], sales_lab[3])
 z_axis_choice <- selectInput("z", "Z axis Choice (for 3D plot only)",
@@ -41,6 +45,7 @@ color_by <- selectInput(
 )
 sd_choice <- numericInput("sd", "Standard Deviations Above the Mean", value = 6)
 
+# create the fluid page for our UI
 ui <- fluidPage(
   includeCSS("style.css"),
   h1("Analysis of Video Game Data"),
@@ -58,7 +63,9 @@ ui <- fluidPage(
                "a few popular games, and which games sell the best within each",
                "genre. We utilized a 3 datasets in the beginning however",
                "only one is used in this final iteration of the project.")),
+      br(),
       HTML('<center><img src = "controller.jpg"></center>'),
+      br(),
       p(paste("The dataset we used contains information about the sales of",
               "video games in multiple regions blocked by console used to play",
               "each game. This data contains such information as well as a few",
@@ -70,6 +77,7 @@ ui <- fluidPage(
                         "link"),
         "."
         ),
+      br(),
       HTML('<center><img src = "switch.jpg"></center>'),
       br()
     ),
@@ -86,6 +94,7 @@ ui <- fluidPage(
             "The following", em("pie charts"), "show a comparison between the
             amount of overall", strong("sales"),
             "of games that are released on multiple platforms.
+            Each price of the bar chart is represented in", strong("millions") ,".
             The pie chart is split into different slices resembling",
             strong("sales on each platform"), "the game is sold. This chart is
             included to clearly show the", em("sales among platforms"),
@@ -104,13 +113,17 @@ ui <- fluidPage(
         ),
         mainPanel(
           h2("Barchart"),
-          plotOutput("bar"),
+          plotlyOutput("bar"),
           p(
-            "The following", em("barcharts"), "look at different genres to see
-            which", em("games and publishers sold the most globally."),
-            "This barchart is included because
-            it is clear to see", strong("which games performed the most and
-            which publisher produced the games."), "The usage of color
+            "The following", strong("barchart"),
+            "looks at different genres to see
+            which", strong("games"), "and",  strong("publishers"),
+            "sold the most globally.
+            Each sale is represented in", strong("millions."),
+            "This barchart was used becuase it
+            clearly shows", em("which games sold the most and
+            which publisher produced the corresponding games."),
+            "The usage of color
             to", em("differentiate"), "publishers also adds to the clarity of
             the chart. Above are the barcharts of the", em("12"),
             "genres, ranging from Racing to Strategy."
@@ -129,10 +142,10 @@ ui <- fluidPage(
           sd_choice
         ),
         mainPanel(
-          p(
-            h2("2D plot"),
-            plotlyOutput("two_D"),
-            "The following scatterplot is interactive to help
+          h2("2D plot"),
+          plotlyOutput("two_d"),
+          br(),
+          p("The following scatterplot is interactive to help
            see how well each game performed in specific regions and globally.
            For the axis, you can change the the different options to be",
             strong("North America, Japan, Europe"), "and",
@@ -142,6 +155,7 @@ ui <- fluidPage(
             a number input for how many", strong("Standard Deviations"),
             "above the mean to sort out the global sales in order for the user
             to see results depending on how well the game did globally.
+            Each price is represented in", strong("millions"),". 
             We decided to do an interactivescatter plot for this part in order
             for the reader to see how the game sold in each region
             specifically, and the color scaling helps see which games did the

@@ -32,3 +32,6 @@ publisher_table <- video_games %>%
 highest_popularity_publisher <- publisher_table %>%
   filter(Global_Popularity == max(Global_Popularity)) %>%
   pull(Publisher)
+
+# change colnames to remove _
+colnames(publisher_table) <- gsub("[_*]", " ", colnames(publisher_table))
